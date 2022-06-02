@@ -1,17 +1,17 @@
-import { getInput, setOutput, setFailed } from '@actions/core';
-import { parse } from 'properties-file';
-import { readFile } from 'fs/promises';
+const core = require('@actions/core');
+const props = require('properties-file');
+const fs = require('fs/promises');
 
 try {
-  const file = getInput('file');
-  readFile(file, 'utf-8').then(contents => {
-    const props = parse(contents);
+  const file = core.getInput('file');
+  fs.readFile(file, 'utf-8').then(contents => {
+    const props = props.parse(contents);
     Object.entries(props).forEach(([key, val]) => {
-      setOutput(key, val);
+      core.setOutput(key, val);
     });
   }).catch(err => {
-    setFailed(err.message);
+    core.setFailed(err.message);
   });
 } catch (error) {
-  setFailed(error.message);
+  core.setFailed(error.message);
 }
