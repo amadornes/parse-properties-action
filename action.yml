@@ -1,5 +1,8 @@
 name: 'Parse Properties'
 description: 'Parses a Java properties file and outputs the entries'
+branding:
+  icon: 'file-text'
+  color: 'purple'
 inputs:
   file:
     description: 'The path to the file to be read'
