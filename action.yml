@@ -4,7 +4,7 @@ inputs:
   file:
     description: 'The path to the file to be read'
     required: true
-outputs:
+# outputs:
   # all the entries in the properties file
 runs:
   using: 'node16'
