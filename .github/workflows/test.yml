@@ -1,0 +1,19 @@
+on: [push]
+
+jobs:
+  print_properties:
+    runs-on: ubuntu-latest
+    name: Prints the properties in test.properties
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Read properties file
+        uses: ./
+        id: props
+        with:
+          file: 'test.properties'
+      - name: Print the properties
+        run: |
+          echo "Prop 1: ${{ steps.props.outputs.prop1 }}"
+          echo "Prop 2: ${{ steps.props.outputs.prop2 }}"
+          echo "Prop 3: ${{ steps.props.outputs.prop3 }}"
