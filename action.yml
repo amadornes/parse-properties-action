@@ -1,0 +1,11 @@
+name: 'Parse Properties'
+description: 'Parses a Java properties file and outputs the entries'
+inputs:
+  file:
+    description: 'The path to the file to be read'
+    required: true
+outputs:
+  # all the entries in the properties file
+runs:
+  using: 'node16'
+  main: 'index.js'
